@@ -3,3 +3,7 @@ signalp6.egg-info/
 *.pyc
 *.pyo
 checkpoints/ensemble_model_signalp6.pt
+
+testruns/
+dist/
+build/

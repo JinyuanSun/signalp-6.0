@@ -226,8 +226,8 @@ def main_training_loop(args: argparse.ArgumentParser):
     logger.info(f"Loading pretrained model in {args.resume}")
     config = BertConfig.from_pretrained(args.resume)
 
-    if config.xla_device:
-        setattr(config, "xla_device", False)
+    # if config.xla_device:
+    #     setattr(config, "xla_device", False)
 
     setattr(config, "num_labels", args.num_seq_labels)
     setattr(config, "num_global_labels", args.num_global_labels)

@@ -569,8 +569,8 @@ def main_training_loop(args: argparse.ArgumentParser):
     logger.info(f"Loading pretrained model in {args.resume}")
     config = MODEL_DICT[args.model_architecture][0].from_pretrained(args.resume)
 
-    if config.xla_device:
-        setattr(config, "xla_device", False)
+    # if config.xla_device:
+    #     setattr(config, "xla_device", False)
 
     setattr(config, "num_labels", args.num_seq_labels)
     setattr(config, "num_global_labels", args.num_global_labels)
@@ -961,7 +961,7 @@ def main_training_loop(args: argparse.ArgumentParser):
             add_global_label=args.global_label_as_input,
         )
         dataloader = torch.utils.data.DataLoader(
-            ds, collate_fn=ds.collate_fn, batch_size=80
+            ds, collate_fn=ds.collate_fn, batch_size=args.batch_size
         )
         metrics = get_metrics_multistate(model, dataloader)
         val_metrics = get_metrics_multistate(model, val_loader)
