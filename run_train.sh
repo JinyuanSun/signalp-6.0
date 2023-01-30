@@ -1,0 +1,12 @@
+python3 scripts/train_model.py --data data/train_set.fasta \
+--test_partition 0 \
+--validation_partition 1 \
+--output_dir testruns \
+--experiment_name testrun1 \
+--remove_top_layers 1 \
+--kingdom_as_token \
+--sp_region_labels \
+--region_regularization_alpha 0.5 \
+--constrain_crf \
+--average_per_kingdom \
+--batch_size  4
